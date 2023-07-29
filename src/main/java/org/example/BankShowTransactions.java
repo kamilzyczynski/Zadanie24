@@ -3,21 +3,24 @@ package org.example;
 import java.util.Scanner;
 
 public class BankShowTransactions {
+    private static final String SHOW_INCOMES = "1";
+    private static final String SHOW_EXPENSES = "2";
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String userOption = null;
         System.out.println("Jakie transakcje chcesz wyświetlić?");
-        System.out.println("1 - przychody");
-        System.out.println("2 - wydatki");
+        System.out.println(SHOW_INCOMES + " - przychody");
+        System.out.println(SHOW_EXPENSES + " - wydatki");
         String choice = scanner.nextLine();
         switch (choice) {
-            case "1" -> {
+            case SHOW_INCOMES -> {
                 userOption = "przychód";
                 BankDao bankDao = new BankDao();
                 bankDao.show(userOption);
 
             }
-            case "2" -> {
+            case SHOW_EXPENSES -> {
                 userOption = "wydatek";
                 BankDao bankDao = new BankDao();
                 bankDao.show(userOption);
